@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>easyui1</title>
+    <title>easyui示例</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<span>helloworld</span>
+<h2>文件上传示例</h2>
+<hr/>
+<form method="POST" enctype="multipart/form-data" action="/upload">
+    <p>
+        文件：<input type="file" name="file" />
+    </p>
+    <p>
+        <input type="submit" value="上传" />
+    </p>
+</form>
+
+<script>
+
+    $(function(){
+        alert(1);
+    });
+</script>
+
 </body>
 </html>
