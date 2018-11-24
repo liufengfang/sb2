@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: sb2
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+
+server:
+  port:9001
