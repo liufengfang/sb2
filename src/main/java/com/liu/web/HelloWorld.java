@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class HelloWord {
+public class HelloWorld {
 
     @RequestMapping("/helloWorld")
     String home() {
