@@ -5,7 +5,7 @@ package com.liu.source.aspectJ;
  */
 public aspect TxAspect {
 
-    void around():call(void sayHello()){
+    void around():call(void sayHelloAspect()){
         System.out.println("trans begin");
         proceed();
         System.out.println("trasn end");
