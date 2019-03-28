@@ -2,5 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="myTestBean" class="com.liu.source.chap2.MyTestBean"></bean>
+    <bean name="myTestBean" class="com.liu.source.chap2.MyTestBean">
+        <property name="testStr" value="haha,I'm myTestBean"></property>
+        <property name="lffService" ref="lffService"></property>
+    </bean>
+
+    <bean name="lffService" class="com.liu.source.chap5.LffService"></bean>
 </beans>
