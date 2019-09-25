@@ -5,8 +5,8 @@
 
 	<groupId>com.liu</groupId>
 	<artifactId>sb2</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>0.0.3-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>sb2</name>
 	<description>Liu's demo project for Spring Boot</description>
@@ -36,12 +36,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
