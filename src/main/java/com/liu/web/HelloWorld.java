@@ -1,5 +1,6 @@
 package com.liu.web;
 
+import com.liu.source.AOP.MyAnnotation;
 import com.liu.source.service.MyService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -28,6 +29,7 @@ public class HelloWorld {
 
     @RequestMapping(value = "/testGet",method = RequestMethod.GET)
     @ResponseBody
+    @MyAnnotation
     public Map<String, String> requestMappingWithGET() {
         //仅GET请求会进入本方法
         Map<String, String> map = new HashMap<>();

@@ -10,6 +10,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
+import java.lang.annotation.Annotation;
+
 /**
  * Created by liufengfang on 2019/9/24.
  * 注意：即使不在Sb2Application.java里面加@EnableAspectJAutoProxy注解，只在这里加上
@@ -39,5 +41,11 @@ public class Aspect1 {
         joinPoint.proceed();
         logger.info("Around after!");
     }
+
+    @Before("@annotation(com.liu.source.AOP.MyAnnotation)")
+    public void doBefore(){
+        logger.info("doBefore --------");
+    }
+
 
 }
