@@ -37,14 +37,14 @@ public class Aspect1 {
 
     @Around("execution(* com.liu.source.service.*.*(..))")
     public void doAround(ProceedingJoinPoint joinPoint) throws Throwable{
-        logger.info("AroundCheck before!");
+        logger.info("aspectJ-Around before!");
         joinPoint.proceed();
-        logger.info("Around after!");
+        logger.info("aspectJ-Around after!");
     }
 
     @Before("@annotation(com.liu.source.AOP.MyAnnotation)")
     public void doBefore(){
-        logger.info("doBefore --------");
+        logger.info("aspectJ-doBefore --------");
     }
 
 
