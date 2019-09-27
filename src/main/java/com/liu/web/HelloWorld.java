@@ -1,11 +1,13 @@
 package com.liu.web;
 
 import com.liu.source.AOP.MyAnnotation;
+import com.liu.source.events.EmailService;
 import com.liu.source.service.MyService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +22,8 @@ public class HelloWorld {
 
     @Autowired
     private MyService myService;
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping("/helloWorld")
     String home() {
@@ -27,7 +31,7 @@ public class HelloWorld {
         return "easy1";
     }
 
-    @RequestMapping(value = "/testGet",method = RequestMethod.GET)
+    @RequestMapping(value = "/testGet", method = RequestMethod.GET)
     @ResponseBody
     @MyAnnotation
     public Map<String, String> requestMappingWithGET() {
@@ -37,6 +41,7 @@ public class HelloWorld {
 
         return map;
     }
+
     @RequestMapping(value = "/testGet")
     @ResponseBody
     public Map<String, String> requestMappingWithNothing() {
@@ -50,7 +55,7 @@ public class HelloWorld {
 
     @RequestMapping(value = "/testGet", method = RequestMethod.PUT)
     @ResponseBody
-    public Map<String, String> requestMappingWithPUT(){
+    public Map<String, String> requestMappingWithPUT() {
         //仅PUT请求会进入本方法
         Map<String, String> map = new HashMap<>();
         map.put("method", "requestMappingWithPUT");
@@ -58,5 +63,11 @@ public class HelloWorld {
         return map;
     }
 
+    @GetMapping("/testEvents")
+    @ResponseBody
+    public String testEvents() {
+        emailService.sendEmail("2@qq.com", "no qq");
+        return "testEvents";
+    }
 
 }
