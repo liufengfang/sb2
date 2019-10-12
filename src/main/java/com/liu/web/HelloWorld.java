@@ -1,5 +1,6 @@
 package com.liu.web;
 
+import com.liu.accessingdatajpa.CustomerRepository;
 import com.liu.source.AOP.MyAnnotation;
 import com.liu.source.events.EmailService;
 import com.liu.source.service.MyService;
@@ -24,11 +25,19 @@ public class HelloWorld {
     private MyService myService;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @RequestMapping("/helloWorld")
     String home() {
         myService.sayHi();
         return "easy1";
+    }
+
+    @RequestMapping("/demoOfJPA")
+    @ResponseBody
+    String demoOfJPA(){
+        return customerRepository.findById(1L).getFirstName();
     }
 
     @RequestMapping(value = "/testGet", method = RequestMethod.GET)
