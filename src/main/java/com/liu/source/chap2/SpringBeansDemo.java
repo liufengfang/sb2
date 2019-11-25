@@ -14,6 +14,6 @@ public class SpringBeansDemo {
     public void mmmm() {
         BeanFactory bf = new XmlBeanFactory(new ClassPathResource("spring-source-test.xml"));
         MyTestBean myTestBean = (MyTestBean) bf.getBean("myTestBean");
-        Assert.assertEquals("testStr",myTestBean.getTestStr());
+        Assert.assertEquals("haha,I'm myTestBean",myTestBean.getTestStr());
     }
 }
