@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
+import java.util.Arrays;
+
 /**
  * Created by liufengfang on 2019/11/25.
  */
@@ -17,7 +19,8 @@ public class MacCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         BeanDefinitionRegistry bdr = conditionContext.getRegistry();
-        logger.info("bdr.getBeanDefinitionNames()=" + bdr.getBeanDefinitionNames());
+        logger.info("bdr.getBeanDefinitionNames()=" +
+                Arrays.toString(bdr.getBeanDefinitionNames()));
 
         Environment environment = conditionContext.getEnvironment();
 
