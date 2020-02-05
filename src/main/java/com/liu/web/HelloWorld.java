@@ -1,6 +1,7 @@
 package com.liu.web;
 
 import com.liu.accessingdatajpa.CustomerRepository;
+import com.liu.annotation.Person;
 import com.liu.source.AOP.MyAnnotation;
 import com.liu.source.events.EmailService;
 import com.liu.source.service.MyService;
@@ -77,6 +78,13 @@ public class HelloWorld {
     public String testEvents() {
         emailService.sendEmail("2@qq.com", "no qq");
         return "testEvents";
+    }
+
+    @GetMapping("/eatApple")
+    @ResponseBody
+    public boolean eatApple(Person person) {
+        myService.eatApple(person);
+        return true;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.liu.source.service;
 
+import com.liu.annotation.Person;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
@@ -14,5 +15,9 @@ public class MyService {
 
     public void sayHi(){
         logger.info("sayHi");
+    }
+
+    public void eatApple(Person person) {
+        logger.info(person + " eat an apple!");
     }
 }
