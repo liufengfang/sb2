@@ -35,6 +35,16 @@ public class HelloWorldController {
         return "easy1";
     }
 
+    @RequestMapping("/controllerAdvice")
+    String controllerAdvice(int n) throws Exception{
+        logger.info("Throw an excetion");
+        if (n == 1) {
+            throw new Exception("This is a custom exception!");
+        }
+
+        return "easy1";
+    }
+
     @RequestMapping("/demoOfJPA")
     @ResponseBody
     String demoOfJPA(){

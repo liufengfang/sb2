@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="text/html; charset=utf-8"/>
+    <title>ControllerAdvice示例</title>
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/jquery-easyui/1.5.21/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<h2>ControllerAdvice示例</h2>
+<form id="uploadForm" method="POST" enctype="multipart/form-data">
+    <p>
+        <input id="singleFile" name="singleFile" class="easyui-filebox"
+               style="width:300px" />
+    </p>
+</form>
+
+<script>
+
+    $(function(){
+        $("#singleFile").filebox({
+            buttonText: '',
+            onChange:singleUpload
+        })
+    });
+
+    function singleUpload() {
+        $.ajax({
+            url: '/filesUpload/singleFileUpload',
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false
+        }).done(function(res) {
+            alert(res);
+        }).fail(function(res) {
+
+        });
+
+    }
+</script>
+
+</body>
+</html>
