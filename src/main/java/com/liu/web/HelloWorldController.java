@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class HelloWorld {
+public class HelloWorldController {
     protected final Log logger = LogFactory.getLog(this.getClass());
 
 
