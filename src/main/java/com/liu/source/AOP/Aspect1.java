@@ -24,10 +24,6 @@ import java.lang.annotation.Annotation;
 public class Aspect1 {
     protected final Log logger = LogFactory.getLog(this.getClass());
 
-//    @Pointcut("within(com.liu.web)")
-//    public void inWebLayer() {
-//    }
-
     @Pointcut("execution(* com.liu.source.chap5.*.*(..))")
     public void businessService() {
     }
@@ -39,6 +35,10 @@ public class Aspect1 {
     @Pointcut("execution(* com.liu.source.service.MyService.eatApple(com.liu.annotation.Person)) " +
             "&& args(person)")
     public void eatPointCut(Person person) {
+    }
+
+    @Pointcut("@annotation(com.liu.source.AOP.MyAnnotation) && args(person)")
+    public void annotationPointCut(Person person) {
     }
 
 
@@ -57,5 +57,10 @@ public class Aspect1 {
     @Before("eatPointCut(person)")
     public void doBeforeEatApple(Person person) {
         logger.info(person + " wash hands!");
+    }
+
+    @Before("annotationPointCut(person)")
+    public void doBeforeAnnotationedMethod(Person person) {
+        logger.info(person+" doBeforeAnnotationedMethod");
     }
 }

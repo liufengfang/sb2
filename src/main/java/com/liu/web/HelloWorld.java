@@ -44,10 +44,11 @@ public class HelloWorld {
     @RequestMapping(value = "/testGet", method = RequestMethod.GET)
     @ResponseBody
     @MyAnnotation
-    public Map<String, String> requestMappingWithGET() {
+    public Map<String, String> requestMappingWithGET(Person person) {
         //仅GET请求会进入本方法
         Map<String, String> map = new HashMap<>();
         map.put("method", "requestMappingWithGET");
+        map.put("person", person.toString());
 
         return map;
     }
