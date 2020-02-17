@@ -2,8 +2,10 @@ package com.liu.web;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -45,8 +47,14 @@ public class AdviceController {
     }
 
     //全局数据预处理
-    public String dataPreprocessing() {
-        return "easy2";
+    @InitBinder("b")
+    public void dataPreprocessing(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("b.");
+    }
+
+    @InitBinder("a")
+    public void dataPreprocessing2(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("a.");
     }
 
 }
