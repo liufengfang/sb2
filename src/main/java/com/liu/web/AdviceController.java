@@ -4,7 +4,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by liufengfang on 2020/2/6.
@@ -13,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdviceController {
     protected final Log logger = LogFactory.getLog(AdviceController.class);
 
+    //1.全局异常处理
     @ExceptionHandler(Exception.class)
     public ModelAndView customExcetion(Exception e) {
         logger.info("Move into ControllerAdvice method!");
@@ -28,5 +33,20 @@ public class AdviceController {
 //        logger.info("Move into ControllerAdvice method!");
 //        return "easy2";
 //    }
+
+    //全局数据绑定
+    @ModelAttribute(name = "dataBind")
+    public Map<String, String> dataBind() {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "chenguanxi");
+        map.put("age", "99");
+        map.put("gender", "男");
+        return map;
+    }
+
+    //全局数据预处理
+    public String dataPreprocessing() {
+        return "easy2";
+    }
 
 }

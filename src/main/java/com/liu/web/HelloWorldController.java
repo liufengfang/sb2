@@ -9,6 +9,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,11 +37,15 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/controllerAdvice")
-    String controllerAdvice(int n) throws Exception{
+    String controllerAdvice(int n, Model model) throws Exception{
         logger.info("Throw an excetion");
         if (n == 1) {
             throw new Exception("This is a custom exception!");
         }
+
+        Map<String, String> map = (Map<String, String>) model.asMap().get("dataBind");
+
+
 
         return "easy1";
     }
