@@ -2,6 +2,8 @@ package com.liu;
 
 import com.liu.accessingdatajpa.Customer;
 import com.liu.accessingdatajpa.CustomerRepository;
+import com.liu.initialization.SimpleTestInitializationBean;
+import com.liu.source.chap5.EntityBean;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -45,6 +47,12 @@ public class Sb2Application {
             logger.info("");
 
         };
+    }
+
+    //这里的定义会替代@component修饰的SimpleTestInitializationBean
+    @Bean
+    public EntityBean simpleTestInitializationBean(){
+        return new EntityBean();
     }
 
 }
