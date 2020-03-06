@@ -5,6 +5,8 @@ spring:
     cache: false
     mode: HTML5
     encoding: utf-8
+  profiles:
+    active: dev
 server:
   port: 9001
 logging:
