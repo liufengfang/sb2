@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by liufengfang on 2019/9/26.
+ * 添加参考资料 （SpringBoot 过滤器, 拦截器, 监听器 对比及使用场景）https://www.cnblogs.com/feng9exe/p/11217340.html
  */
 public class MyInterceptor implements HandlerInterceptor {
     protected final Log logger = LogFactory.getLog(this.getClass());
