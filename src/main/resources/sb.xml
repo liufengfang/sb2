@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- resources 包上右键/ctr+n ,new ->XML Configuration File -> Spring Config  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="author" class="com.liu.web.entity.Author">
+        <property name="name" value="sss"></property>
+        <property name="age" value="33"></property>
+        <property name="skills">
+            <list>
+                <value>basketball</value>
+                <value>football</value>
+                <value>reading</value>
+            </list>
+        </property>
+    </bean>
+</beans>

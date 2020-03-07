@@ -2,9 +2,13 @@ package com.liu.source.chap2;
 
 import com.liu.annotation.Person;
 import com.liu.annotation.conditional.ConditionConfig;
+import com.liu.web.entity.Author;
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 
 import java.util.Arrays;
 
@@ -31,5 +35,13 @@ public class SpringBeansDemo {
 
         Person p = ac.getBean("person", Person.class);
         Person p2 = ac.getBean("person2", Person.class);
+    }
+
+    @Test
+    public void xmlConfig(){
+        //todo how to use a  DefaultListableBeanFactory with an XmlBeanDefinitionReader
+        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("sb.xml"));
+        Author author = beanFactory.getBean("author", Author.class);
+        System.err.println(author.getSkills());
     }
 }
