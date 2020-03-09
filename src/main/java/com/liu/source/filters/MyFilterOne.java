@@ -16,18 +16,18 @@ public class MyFilterOne implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        logger.info("MyFilterOne-init() ");
+        logger.debug("MyFilterOne-init() ");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        logger.info("MyFilterOne-doFilter()  start");
+        logger.debug("MyFilterOne-doFilter()  start");
         filterChain.doFilter(servletRequest,servletResponse);
-        logger.info("MyFilterOne-doFilter()  end");
+        logger.debug("MyFilterOne-doFilter()  end");
     }
 
     @Override
     public void destroy() {
-        logger.info("MyFilterOne-destroy()");
+        logger.debug("MyFilterOne-destroy()");
     }
 }
