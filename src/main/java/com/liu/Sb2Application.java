@@ -31,20 +31,20 @@ public class Sb2Application {
             repository.save(new Customer("Michelle", "Dessler"));
 
             //fetch all customers
-            logger.info("Customers found with findAll():");
-            logger.info("-------------------------------");
+            logger.debug("Customers found with findAll():");
+            logger.debug("-------------------------------");
             for (Customer customer : repository.findAll()) {
-                logger.info(customer.toString());
+                logger.debug(customer.toString());
             }
-            logger.info("");
+            logger.debug("");
 
             //fetch customers by last name
-            logger.info("Customers found with findByLastName('Bauer'):");
-            logger.info("-------------------------------");
+            logger.debug("Customers found with findByLastName('Bauer'):");
+            logger.debug("-------------------------------");
             repository.findByLastName("Bauer").forEach(bauer -> {
-                logger.info(bauer.toString());
+                logger.debug(bauer.toString());
             });
-            logger.info("");
+            logger.debug("");
 
         };
     }

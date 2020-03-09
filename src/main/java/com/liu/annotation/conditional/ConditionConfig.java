@@ -20,7 +20,7 @@ public class ConditionConfig {
     @Conditional(MacCondition.class)
     @Bean
     public Person person() {
-        logger.info("loading Person");
+        logger.debug("loading Person");
         return new Person("Mark", "NewYork");
     }
 
@@ -28,7 +28,7 @@ public class ConditionConfig {
     @ConditionalOnClass(MyTestBean.class)
     @Bean
     public Person person2() {
-        logger.info("test ConditionalOnBean");
+        logger.debug("test ConditionalOnBean");
         return new Person("exists", "person");
     }
 }
