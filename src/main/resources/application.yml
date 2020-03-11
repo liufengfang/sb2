@@ -15,3 +15,9 @@ logging:
   level:
     com.liu: debug
 
+sb2:
+  placeholder:
+    test:
+      person:
+        name: YouGetIt
+        city: BeiJing
