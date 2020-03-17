@@ -9,11 +9,18 @@ spring:
     active: dev
 server:
   port: 9001
+
+#If you need to find out what auto-configuration is currently being applied, and why,
+#start your application with the --debug switch.
+#Doing so enables debug logs for a selection of core loggers and logs a conditions report to the console.
+#start your application with the --debug switch方法之一：点击IDEA上方工具栏选Edit Configurations打开Run/Debug Configurations,
+#  勾选configuration->Enable Debug Output
 logging:
   pattern:
-    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-60.60logger{39}){cyan}[lineno:%line]    %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-40.40logger{39}){cyan}[lineno:%line]    %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
   level:
     com.liu: debug
+  path: /Users/liufengfang/Downloads/tmp
 
 sb2:
   placeholder:
