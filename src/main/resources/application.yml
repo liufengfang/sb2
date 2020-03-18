@@ -28,3 +28,8 @@ sb2:
       person:
         name: YouGetIt
         city: BeiJing
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
