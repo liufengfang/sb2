@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Created by liufengfang on 2019/9/26.
+ * 非常重要的接口：WebMvcConfigurer和WebApplicationInitializer
  */
 @Profile("dev")
 @Configuration
