@@ -15,10 +15,17 @@ import java.util.function.Consumer;
 
 @SpringBootApplication
 public class Sb2Application {
-    Log logger = LogFactory.getLog(this.getClass());
+    public static final Log logger = LogFactory.getLog(Sb2Application.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(Sb2Application.class, args);
+//        SpringApplication.run(Sb2Application.class, args);
+        //还可以像下面这样写
+        SpringApplication springApplication = new SpringApplication(Sb2Application.class);
+//        springApplication.addInitializers(initializers);
+//        springApplication.addListeners(listeners);
+//        springApplication.addPrimarySources(additionalPrimarySources);
+//        logger.debug("listeners=" + springApplication.getListeners());
+        springApplication.run(args);
     }
 
     @Bean
@@ -51,7 +58,7 @@ public class Sb2Application {
 
     //这里的定义会替代@component修饰的SimpleTestInitializationBean
     @Bean
-    public EntityBean simpleTestInitializationBean(){
+    public EntityBean simpleTestInitializationBean() {
         return new EntityBean();
     }
 
